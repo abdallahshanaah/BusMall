@@ -1,0 +1,14 @@
+img{
+    width: 300px;
+    float: left;
+}
+h1{
+    font-size: xx-large;
+    text-align: center;
+    padding: 30px;
+    background-color: beige;
+    
+}
+footer{
+    background-color: beige;
+}
