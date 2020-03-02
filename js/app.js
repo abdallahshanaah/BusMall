@@ -1,6 +1,6 @@
-var allimage = ['bag.jpg', 'banana.jpg', 'bathroom.jpg', 'boots.jpg', 'bubblegum.jpg', 'chair.jpg', 'cthulhu.jpg',
-    'dog-duck.jpg', 'pen.jpg', 'pet-sweep.jpg', 'scissors.jpg',
-    'sweep.png', 'tauntaun.jpg', 'unicorn.jpg', 'usb.gif', 'wine-glass.jpg'];
+var allimage = ['bag.jpg', 'banana.jpg', 'bathroom.jpg', 'boots.jpg','breakfast.jpg', 'bubblegum.jpg', 'chair.jpg', 'cthulhu.jpg',
+    'dog-duck.jpg','dragon.jpg', 'pen.jpg', 'pet-sweep.jpg', 'scissors.jpg',
+    'shark.jpg','sweep.png', 'tauntaun.jpg', 'unicorn.jpg', 'usb.gif','water-can.jpg', 'wine-glass.jpg'];
 
 var leftimage = document.querySelector('#left-img');
 var middleimage = document.querySelector('#middle-img');
@@ -16,7 +16,7 @@ function Imagegame(name) {
     this.imagelink = `img/${this.name}`
     photos.push(this);
     this.count=0;
-    var view=0;
+     this.view=0;
 }
 var leftImgRand = photos[randomNumber(0, photos.length - 1)];
 var middleImgRand = photos[randomNumber(0, photos.length - 1)];
@@ -68,11 +68,17 @@ function clickImage(img){
         for (let i=0;i<photos.length;i++){
         var liEL=document.createElement('li');
         ulEL.appendChild(liEL);
-        liEL.textContent=`${photos[i].name} Slicer had ${photo[i].count} votes and was shown ${photos.view} times`
+        liEL.textContent=`${photos[i].name} Slicer had ${photos[i].count} votes and was shown ${photos[i].view} times`
+        //console.log(photos)
         }
         ulEL.appendChild('showdiv');
+        console.log('showdiv')
+         //result_of_canves();
     }
+    result_of_canves();
 }
+
+
 
 
 
@@ -95,3 +101,53 @@ RandomImages();
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+function result_of_canves() {
+    console.log('abdallah');
+    var imgnames=[];
+    var imgckicks=[];
+    for(let i =0 ; i< photos.length ;i++){
+        var imgname =photos[i].name;
+        imgnames.push(imgname);
+        var imgckick =photos[i].view;
+        imgckicks.push(imgckick);
+    }
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: imgnames,
+        datasets: [{
+            label: '# of Votes',
+            data: imgckicks,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+ }
