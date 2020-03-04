@@ -92,7 +92,7 @@ function clickImage(img) {
             var liEL = document.createElement('li');
             ulEL.appendChild(liEL);
             // var newname=photos[i].name.splice('.')[0]
-            liEL.textContent = `${photos[i].name} Slicer had ${photos[i].votes} votes and was shown ${photos[i].view} times`;
+            liEL.textContent = `${photos[i].name.split('.')[0]} Slicer had ${photos[i].votes} votes and was shown ${photos[i].view} times`;
         }
         ulEL.appendChild('showdiv');
         console.log('showdiv');
@@ -121,7 +121,7 @@ function result_of_canves() {
     var imhviews=[];
     var imgvotes=[];
     for(let i =0 ; i< photos.length ;i++){
-        var imgname =photos[i].name;
+        var imgname =photos[i].name.split('.')[0];
         imgnames.push(imgname);
         var imgview =photos[i].view;
         imhviews.push(imgview);
