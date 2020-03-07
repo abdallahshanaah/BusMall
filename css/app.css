@@ -9,11 +9,14 @@ h1{
     font-size: xx-large;
     text-align: center;
     padding: 30px;
-    background-color: beige;
+    background-color: darkgray;
     
 }
 footer{
-    background-color: beige;
+    background-color: darkgray;
+    clear: both;
+    text-align: center;
+    padding: 30px;
 }
 #showdiv{
     list-style: none;
@@ -29,4 +32,12 @@ li{
     height: 400px;
     width: 400px;
     float: right;
+}
+main{
+    background-color: darkkhaki;
+}
+#myChart{
+    background-color: lightyellow;
+    width: 200px;
+    height: 200px;
 }
